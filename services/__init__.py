@@ -1,4 +1,4 @@
 """
 Директория для хранения бизнес_логики
 """
-from . import services
+from .services import define_winner, random_bot_choice

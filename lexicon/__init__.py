@@ -1,4 +1,4 @@
 """
 Пакет со словарями соответствий
 """
-from . import lexicon_ru
+from .lexicon_ru import LEXICON_RU
