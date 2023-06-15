@@ -3,6 +3,7 @@ import logging
 from config_data.config import Config, get_config_data
 from handlers import other_handlers, user_handlers
 from aiogram import Bot, Dispatcher
+from aiogram.types import BotCommand
 
 
 # Инициализируем логгер
@@ -24,6 +25,15 @@ async def main():
     bot: Bot = Bot(token=config.tg_bot.token,
                    parse_mode='HTML')
     dp: Dispatcher = Dispatcher()
+
+    main_menu_commands = [
+        BotCommand(command='/start',
+                   description='Запустить бота'),
+        BotCommand(command='/help',
+                   description='Справка')
+    ]
+
+    await bot.set_my_commands(main_menu_commands)
 
     dp.include_router(user_handlers.router)
     dp.include_router(other_handlers.router)
